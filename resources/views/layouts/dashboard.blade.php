@@ -28,7 +28,7 @@ $jml_minuman = mysqli_num_rows($query4);
 ?>
 @extends('layouts.main')
 @section('title')
-    Dashboard | QUEEN Z
+    Dashboard | Nugraha Trans
 @endsection
 @section('content')
     <div class="page-breadcrumb">
