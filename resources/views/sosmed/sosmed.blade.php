@@ -15,7 +15,7 @@ Testimoni | NugrahaTrans
                         alt="Card image cap" style="width: 150px">
                     <div class="card-body">
                         <h4 class="card-title">WhatsApp</h4>
-                        <p class="card-text">Hubungi Admin jika ada pertanyaan yang ingin diajukan melalui WhatsApp</p>
+                        <p class="card-text">Hubungi Kami jika ada pertanyaan yang ingin diajukan melalui WhatsApp</p>
                         <a href="https://wa.me/6281234141643" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
@@ -60,8 +60,8 @@ Testimoni | NugrahaTrans
                         alt="Card image cap" style="width: 150px">
                     <div class="card-body">
                         <h4 class="card-title">G-Mail</h4>
-                        <p class="card-text">Hubungi Admin jika ada pertanyaan yang ingin diajukan melalui G-Mail</p>
-                        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZzCttKxqSmWjplwzhpLbnqQdBjBMZQmLhZnmhMKjxDhLXWSQgQbFXNxvxqDrdrNGNNFg" class="btn btn-primary">Click Here</a>
+                        <p class="card-text">Hubungi Kami jika ada pertanyaan yang ingin diajukan melalui G-Mail</p>
+                        <a href="mailto:nugrahacorp.inc@gmail.com" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
                 <!-- Card -->
