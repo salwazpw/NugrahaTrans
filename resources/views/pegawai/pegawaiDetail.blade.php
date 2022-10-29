@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Detail Data Pegawai
+    Detail Data Pegawai | Nugraha Trans
 @endsection
 @section('content')
     <div class="mt-5 col-md-8 mx-auto">

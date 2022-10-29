@@ -25,7 +25,7 @@
                   <div class="col-md-12 col-xs-12">
                     <div class="form-group">
                         <label for="exampleInputEmail1">NIK</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="NIK" name="id" required>
+                        <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="NIK" name="id" required>
                       </div>
                 </div>
                     <div class="col-md-12 col-xs-12">
