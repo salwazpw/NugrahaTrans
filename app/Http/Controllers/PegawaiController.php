@@ -116,7 +116,7 @@ class PegawaiController extends Controller
             'telepon' => 'required|max:13',
             'alamat' => 'required',
             'jenisKelamin' => 'required',         
-            'gaji' => 'required',
+            'gaji' => 'required|numeric',
         ]);
         $pegawai = Pegawai::where('id', $id)->first();
         $pegawai->namaPegawai = $request->get('namaPegawai');
