@@ -31,7 +31,7 @@
                                     Pemasukan
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"><a href="/pengeluaran" class="sidebar-link"><span class="hide-menu">
+                        <li class="sidebar-item"><a href="{{route('pengeluaran.index')}}" class="sidebar-link"><span class="hide-menu">
                                     Data Pengeluaran
                                 </span></a>
                         </li>
@@ -40,7 +40,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/lokasi" aria-expanded="false"><i
                             class="fas fa-map-marker-alt"></i><span class="hide-menu">Lokasi</span></a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sosial" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sosialmedia" aria-expanded="false"><i
                             class="fas fa-comments"></i><span class="hide-menu">Sosial Media</span></a>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/testimoni"
