@@ -8,18 +8,18 @@
                             data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
                 <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/katalog" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('katalog.index')}}" aria-expanded="false"><i
                             class="fas fa-car"></i><span class="hide-menu">Katalog Kendaraan </span></a>
                 </li>
                 {{-- @if (auth()->user()->level == 'admin') --}}
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/pegawai" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('pegawai.index')}}" aria-expanded="false"><i
                             class=" fab fa-black-tie"></i><span class="hide-menu">Data Pegawai</span></a>
                 </li>
                 {{-- @endif --}}
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/customer" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('customer.index')}}" aria-expanded="false"><i
                             class=" fas fa-users"></i><span class="hide-menu">Data Customer</span></a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/customer" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sewa" aria-expanded="false"><i
                             class="far fa-money-bill-alt"></i><span class="hide-menu">Sewa & Transaksi</span></a>
                 </li>
                 {{-- @if (auth()->user()->level == 'admin') --}}
