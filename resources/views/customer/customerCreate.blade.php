@@ -43,7 +43,7 @@
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">No. Telepon</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="No. Telepon" name="telepon" required>
+                            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="No. Telepon" name="telepon" required>
                           </div>
                     </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

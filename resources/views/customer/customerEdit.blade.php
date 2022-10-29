@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">NIK</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="NIK" name="id" required value="{{$customer->id}}">
+                            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="NIK" name="id" required value="{{$customer->id}}">
                           </div>
                     </div>
                     <div class="col-md-6">
@@ -44,7 +44,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">No. Telepon</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="No. Telepon" name="telepon" required value="{{$customer->telepon}}">
+                            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="No. Telepon" name="telepon" required value="{{$customer->telepon}}">
                           </div>
                     </div>
                 </div>

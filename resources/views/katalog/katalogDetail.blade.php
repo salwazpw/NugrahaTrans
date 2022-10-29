@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" readonly value="{{$katalog->harga}}">
+                            <input type="number" class="form-control" id="harga" name="harga" readonly value="{{$katalog->harga}}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Catatan</label>
