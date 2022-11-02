@@ -4,7 +4,7 @@ Testimoni | NugrahaTrans
 @endsection
 @section('content')
 <div class="row">
-    <div class="col-12">
+    <div class="col-12" style="margin-top: 65px">
         <!-- Row -->
         <div class="row">
             <!-- column -->
@@ -16,7 +16,7 @@ Testimoni | NugrahaTrans
                     <div class="card-body">
                         <h4 class="card-title">WhatsApp</h4>
                         <p class="card-text">Hubungi Kami jika ada pertanyaan yang ingin diajukan melalui WhatsApp</p>
-                        <a href="https://wa.me/6281234141643" class="btn btn-primary">Click Here</a>
+                        <a target="_blank" href="https://wa.me/6281234141643" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
                 <!-- Card -->
@@ -31,7 +31,7 @@ Testimoni | NugrahaTrans
                     <div class="card-body">
                         <h4 class="card-title">Instagram</h4>
                         <p class="card-text">Kunjungi Instagram Kami untuk Informasi Tambahan Lainnya</p>
-                        <a href="https://instagram.com/nugrahacorp.inc" class="btn btn-primary">Click Here</a>
+                        <a target="_blank" href="https://instagram.com/nugrahacorp.inc" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
                 <!-- Card -->
@@ -46,7 +46,7 @@ Testimoni | NugrahaTrans
                     <div class="card-body">
                         <h4 class="card-title">Facebook</h4>
                         <p class="card-text">Kunjungi Facebook Kami untuk Informasi Tambahan Lainnya</p>
-                        <a href="https://www.facebook.com/nugrahatrans.id" class="btn btn-primary">Click Here</a>
+                        <a target="_blank" href="https://www.facebook.com/nugrahatrans.id" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
                 <!-- Card -->
@@ -61,7 +61,7 @@ Testimoni | NugrahaTrans
                     <div class="card-body">
                         <h4 class="card-title">G-Mail</h4>
                         <p class="card-text">Hubungi Kami jika ada pertanyaan yang ingin diajukan melalui G-Mail</p>
-                        <a href="mailto:nugrahacorp.inc@gmail.com" class="btn btn-primary">Click Here</a>
+                        <a target="_blank" href="mailto:nugrahacorp.inc@gmail.com" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
                 <!-- Card -->
