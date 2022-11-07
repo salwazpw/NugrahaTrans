@@ -7,7 +7,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/dashboard" aria-expanded="false"><i
                             data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
-                <li class="nav-small-cap"><span class="hide-menu">Components</span></li>
+                <li class="nav-small-cap"><span class="hide-menu">Contents</span></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('katalog.index')}}" aria-expanded="false"><i
                             class="fas fa-car"></i><span class="hide-menu">Katalog Kendaraan </span></a>
                 </li>
@@ -49,7 +49,7 @@
                 </li>
                 {{-- @endif --}}
                 <li class="nav-small-cap"><span class="hide-menu">Account</span></li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link " href="/acc" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link " href="{{route('logout')}}" aria-expanded="false"><i
                             data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a>
                 </li>
             </ul>

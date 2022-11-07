@@ -26,7 +26,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="/dashboard">
                             <!-- </b> -->
                             <!-- Logo text -->
                             <span class="logo-text">
@@ -70,21 +70,20 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"  style="margin-left: 840px">
-                                {{-- @if (auth()->user()->level == 'admin') --}}
-                                    {{-- <img src="{{ asset('templatee/assets/images/users/admin.png') }}" alt="user"
-                                        class="rounded-circle" width="40"> --}}
-                                {{-- @else --}}
-                                    {{-- <img src="{{ asset('templatee/assets/images/users/user3.png') }}" alt="user"
-                                        class="rounded-circle" width="40"> --}}
-                                {{-- @endif --}}
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span>
-                                    <span class="text-dark">nama</span> <i
-                                        data-feather="chevron-down" class="svg-icon"></i></span>
+                                    <span class="text-dark">{{ auth()->user()->username }}</span> 
+                                    <img class="img-xs rounded-circle" src="{{asset('storage/'. auth()->user()->profile)}}">
+
+                                    <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="#"><i data-feather="power"
-                                        class="svg-icon mr-2 ml-1"></i>Logout</a>
+                                <a class="dropdown-item" href="{{route('userUpdate')}}"><i data-feather="settings"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Account Setting</a>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{route('logout')}}"><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1"></i>
+                                    Logout</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->

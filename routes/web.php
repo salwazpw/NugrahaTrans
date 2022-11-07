@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +18,35 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::post('postlogin', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registrasi');
+Route::post('postregistrasi', [LoginController::class, 'postRegistrasi'])->name('postregistrasi');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::resource('katalog',KatalogController::class);
-Route::resource('pegawai',PegawaiController::class);
-Route::resource('customer',CustomerController::class);
-Route::resource('pengeluaran',PengeluaranController::class);
-
-Route::get('/sosialmedia', function () {
-    return view('sosmed.sosmed');
+Route::group(['middleware' => ['auth', 'CekLevel:admin,user']], function(){
+    Route::get('/', function () {
+        return view('layouts.dashboard');
+    });
+    Route::resource('katalog',KatalogController::class);
+    Route::resource('pegawai',PegawaiController::class);
+    Route::resource('customer',CustomerController::class);
+    Route::resource('pengeluaran',PengeluaranController::class);
+    
 });
+
+Route::group(['middleware' => ['auth', 'CekLevel:admin, user']], function(){
+    Route::get('/sosialmedia', function () {
+        return view('sosmed.sosmed');
+});
+    Route::get('/dashboard', function () {
+    return view('layouts.dashboard');
+});
+});
+
+Route::get('/lokasi', function () {
+    return view('lokasi.lokasi');
+});
+
+Route::get('update', [UserController::class, 'edit'])->name('userUpdate');
+Route::patch('updateprofile',  [UserController::class, 'update'])->name('updateProfile');

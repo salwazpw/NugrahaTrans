@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="{{asset('templatee/assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('templatee/assets/images/logo bar.png')}}">
     <title>@yield('title')</title>
     <!-- Custom CSS -->
     <link href="{{asset('templatee/assets/extra-libs/c3/c3.min.css')}}" rel="stylesheet">
