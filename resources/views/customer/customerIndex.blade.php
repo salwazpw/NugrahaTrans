@@ -60,6 +60,7 @@
                                             href="{{ route('customer.show', $data->id) }}"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-icons btn-warning"
                                             href="{{ route('customer.edit', $data->id) }}"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-icons btn-light"  target="_blank" href="{{route('cetakpdf', $data->id)}}"><i class="fas fa-print"></i></a>  
                                         @csrf
                                         @method('DELETE')
                                         <input name="_method" type="hidden" value="DELETE">

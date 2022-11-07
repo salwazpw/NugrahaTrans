@@ -6,6 +6,7 @@ use App\Models\Customer;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class CustomerController extends Controller
 {
@@ -137,5 +138,11 @@ class CustomerController extends Controller
             Alert::error('Gagal','Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
             return redirect()->route('customer.index');
         }
+    }
+
+    public function cetak_pdf($id){
+        $customer = Customer::where('id', $id)->first();
+        $pdf = PDF::loadview('customer.customerPdf',['customer'=>$customer]);
+        return $pdf->stream();
     }
 }
