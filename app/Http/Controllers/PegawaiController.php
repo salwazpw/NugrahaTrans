@@ -6,6 +6,7 @@ use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class PegawaiController extends Controller
 {
@@ -150,5 +151,11 @@ class PegawaiController extends Controller
             Alert::error('Gagal','Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
             return redirect()->route('pegawai.index');
         }
+    }
+
+    public function cetak_pdf($id){
+        $pegawai = Pegawai::where('id', $id)->first();
+        $pdf = PDF::loadview('pegawai.pegawaiPdf',['pegawai'=>$pegawai]);
+        return $pdf->stream();
     }
 }

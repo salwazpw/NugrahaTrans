@@ -62,6 +62,7 @@ Data Pegawai | NugrahaTrans
                             <form action="{{ route('pegawai.destroy',  $data->id) }}" method="POST">
                                 <a class="btn btn-icons btn-primary" href="{{route('pegawai.show', $data->id)}}"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-icons btn-warning" href="{{route('pegawai.edit', $data->id)}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-icons btn-light" target="_blank" href="{{route('cetak_pdf', $data->id)}}"><i class="fas fa-print"></i></a> 
                                 @csrf
                                 @method('DELETE')
                                 <input name="_method" type="hidden" value="DELETE">
