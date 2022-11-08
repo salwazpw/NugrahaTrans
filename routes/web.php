@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin,user']], function(){
     Route::resource('pegawai',PegawaiController::class);
     Route::resource('customer',CustomerController::class);
     Route::resource('pengeluaran',PengeluaranController::class);
+    Route::resource('testimoni',TestimoniController::class);
     Route::get('customer/cetak_pdf/{member}', [CustomerController::class, 'cetak_pdf'])->name('cetakpdf');
     Route::get('pegawai/cetak_pdf/{pegawai}', [PegawaiController::class, 'cetak_pdf'])->name('cetak_pdf');
 });
