@@ -42,6 +42,7 @@ Data Pegawai | NugrahaTrans
                         <th scope="col">Nama Pegawai</th>
                         <th scope="col">Jabatan</th>
                         <th scope="col">No Telepon</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col" >Gaji</th>
@@ -55,6 +56,7 @@ Data Pegawai | NugrahaTrans
                         <td>{{$data->namaPegawai}}</td>
                         <td>{{$data->jabatan}}</td>
                         <td>{{$data->telepon}}</td>
+                        <td>{{$data->email}}</td>
                         <td>{{$data->alamat}}</td>
                         <td>{{$data->jenisKelamin}}</td>
                         <td>Rp. {{number_format($data->gaji, 0, ",", ".")}}</td>

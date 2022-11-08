@@ -18,6 +18,7 @@ class Pegawai extends Model
         'namaPegawai',
         'jabatan',
         'telepon',
+        'email',
         'alamat',
         'jenisKelamin',
         'gaji'

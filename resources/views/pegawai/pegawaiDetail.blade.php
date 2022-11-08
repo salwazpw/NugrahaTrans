@@ -26,6 +26,10 @@
                             <input type="text" class="form-control" id="telepon" name="telepon" value="{{$pegawai->telepon}}" readonly>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" value="{{$pegawai->email}}" readonly>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Alamat</label>
                             <input type="text" class="form-control" id="alamat" name="alamat" readonly value="{{$pegawai->alamat}}">
                         </div>

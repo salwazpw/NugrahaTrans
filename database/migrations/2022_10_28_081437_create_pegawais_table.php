@@ -18,6 +18,7 @@ class CreatePegawaisTable extends Migration
             $table->string('namaPegawai');
             $table->enum('jabatan', ['Admin', 'Sopir']);
             $table->string('telepon');
+            $table->string('email');
             $table->text('alamat');
             $table->enum('jenisKelamin', ['P','L']);
             $table->double('gaji');

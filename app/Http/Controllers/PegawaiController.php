@@ -24,6 +24,7 @@ class PegawaiController extends Controller
             ->orWhere('namaPegawai','like',"%{$request->keyword}%")
             ->orWhere('jabatan','like',"%{$request->keyword}%")
             ->orWhere('telepon','like',"%{$request->keyword}%")
+            ->orWhere('email','like',"%{$request->keyword}%")
             ->orWhere('alamat','like',"%{$request->keyword}%")
             ->orWhere('jenisKelamin','like',"%{$request->keyword}%")
             ->orWhere('gaji','like',"%{$request->keyword}%");
@@ -58,6 +59,7 @@ class PegawaiController extends Controller
             'namaPegawai' => 'required|string',
             'jabatan' => 'required',
             'telepon' => 'required|max:13',
+            'email' => 'required',
             'alamat' => 'required',
             'jenisKelamin' => 'required',
             'gaji' => 'required|numeric',   
@@ -68,6 +70,7 @@ class PegawaiController extends Controller
         $pegawai->namaPegawai = $request->get('namaPegawai');
         $pegawai->jabatan = $request->get('jabatan');
         $pegawai->telepon = $request->get('telepon');
+        $pegawai->email = $request->get('email');
         $pegawai->alamat = $request->get('alamat');
         $pegawai->jenisKelamin = $request->get('jenisKelamin');
         $pegawai->gaji = $request->get('gaji');
@@ -115,6 +118,7 @@ class PegawaiController extends Controller
             'namaPegawai' => 'required|string',
             'jabatan' => 'required',
             'telepon' => 'required|max:13',
+            'email' => 'required',
             'alamat' => 'required',
             'jenisKelamin' => 'required',         
             'gaji' => 'required|numeric',
@@ -123,6 +127,7 @@ class PegawaiController extends Controller
         $pegawai->namaPegawai = $request->get('namaPegawai');
         $pegawai->jabatan = $request->get('jabatan');
         $pegawai->telepon = $request->get('telepon');
+        $pegawai->email = $request->get('email');
         $pegawai->alamat = $request->get('alamat');
         $pegawai->jenisKelamin = $request->get('jenisKelamin');
         $pegawai->gaji = $request->get('gaji');   

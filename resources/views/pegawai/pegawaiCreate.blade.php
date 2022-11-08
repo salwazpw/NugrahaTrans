@@ -54,6 +54,12 @@
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Email" name="email" required>
+                          </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Alamat</label>
                             <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Alamat" name="alamat" required>
                         </div>

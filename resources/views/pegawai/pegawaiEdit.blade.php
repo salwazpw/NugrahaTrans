@@ -38,9 +38,9 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputPassword1">Jabatan</label>
-                            <select class="form-control" id="jabatan" name="jabatan" value="{{$pegawai->jabatan}}">
-                                <option value="Admin">Admin</option>
-                                <option value="Sopir">Sopir</option>
+                            <select class="form-control" id="jabatan" name="jabatan">
+                                <option value="Admin" {{ $pegawai->jabatan == "Admin" ? 'selected' : '' }}>Admin</option>
+                                <option value="Sopir" {{ $pegawai->jabatan == "Sopir" ? 'selected' : '' }}>Sopir</option>
                             </select>
                             @if ($errors->has('jabatan'))
                             <div class="error">{{ $errors->first('jabatan') }}</div>
@@ -55,6 +55,12 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="email" name="email" required value="{{$pegawai->email}}">
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Alamat</label>
                             <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Alamat" name="alamat" required value="{{$pegawai->alamat}}">
                           </div>
@@ -62,9 +68,9 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputPassword1">Jenis Kelamin</label>
-                            <select class="form-control" id="jenisKelamin" name="jenisKelamin" value="{{$pegawai->jenisKelamin}}">
-                                <option value="P">Perempuan</option>
-                                <option value="L">Laki</option>
+                            <select class="form-control" id="jenisKelamin" name="jenisKelamin">
+                                <option value="P" {{ $pegawai->jenisKelamin == "P" ? 'selected' : '' }}>Perempuan</option>
+                                <option value="L" {{ $pegawai->jenisKelamin == "L" ? 'selected' : '' }}>Laki</option>
                             </select>
                           </div>
                     </div>                    
