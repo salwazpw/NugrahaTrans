@@ -72,8 +72,7 @@
                                 aria-haspopup="true" aria-expanded="false"  style="margin-left: 840px">
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span>
                                     <span class="text-dark">{{ auth()->user()->username }}</span> 
-                                    <img class="img-xs rounded-circle" src="{{asset('storage/'. auth()->user()->profile)}}">
-
+                                    {{-- <img class="img-xs rounded-circle" src="{{asset('storage/'. auth()->user()->profile)}}"> --}}
                                     <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
