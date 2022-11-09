@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Data Pengeluaran | NugrahaTrans
+Data Pengeluaran | NugrahaTrans
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -16,9 +16,11 @@
                     <div class="float-right">
                         <form class="form-inline my-23 my-lg-0" action="{{url()->current()}}" method="GET">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword" value="{{request('keyword')}}">
-                            {{-- <button class="btn btn-icons btn-warning" type="submit"><i class="glyphicon glyphicon-search"></i></button> --}}
                             <button type="submit" class="btn btn-primary" type="submit"><span class="fa fa-search"></span></button>
                         </form>
+                    </div>
+                    <div class="d-flex flex-row-reverse float-right px-2">
+                        <a href="{{route('pengeluaranPdf')}}" target="_blank" class="btn btn-icons btn-light"><i class="fas fa-print"></i></a>
                     </div>
                 </div>
             </div><!-- /.col -->
@@ -42,7 +44,7 @@
                         <th scope="col">Tanggal</th>
                         <th scope="col">Jenis Pengeluaran</th>
                         <th scope="col">Jumlah Pengeluaran</th>
-                        <th scope="col" >Aksi</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>

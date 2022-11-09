@@ -6,6 +6,7 @@ use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengeluaranController extends Controller
 {
@@ -133,5 +134,11 @@ class PengeluaranController extends Controller
             Alert::error('Gagal','Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
             return redirect()->route('pengeluaran.index');
         }
+    }
+
+    public function cetak_pdf(){
+        $pengeluaran = Pengeluaran::all();
+        $pdf = PDF::loadview('pengeluaran.pengeluaranPdf',['pengeluaran'=>$pengeluaran])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 }
