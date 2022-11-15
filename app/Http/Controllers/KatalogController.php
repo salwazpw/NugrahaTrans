@@ -144,7 +144,7 @@ class KatalogController extends Controller
         $katalog->merk = $request->get('merk');
         $katalog->warna = $request->get('warna');
         $katalog->harga = $request->get('harga');
-        // $katalog->status = $request->get('status');
+        $katalog->status = $request->get('status');
         $katalog->informasi = $request->get('informasi');
         $katalog->catatan = $request->get('catatan'); 
 
