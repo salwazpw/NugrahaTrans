@@ -16,10 +16,10 @@
                             class=" fab fa-black-tie"></i><span class="hide-menu">Data Pegawai</span></a>
                 </li>
                 {{-- @endif --}}
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('customer.index')}}" aria-expanded="false"><i
-                            class=" fas fa-users"></i><span class="hide-menu">Data Customer</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('user.index')}}" aria-expanded="false"><i
+                            class=" fas fa-users"></i><span class="hide-menu">Data User</span></a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/sewa" aria-expanded="false"><i
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('transaksi.index')}}" aria-expanded="false"><i
                             class="far fa-money-bill-alt"></i><span class="hide-menu">Sewa & Transaksi</span></a>
                 </li>
                 {{-- @if (auth()->user()->level == 'admin') --}}

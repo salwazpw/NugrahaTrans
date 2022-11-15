@@ -17,7 +17,7 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         if (Auth::attempt($request->only('username', 'password'))) {
-            return redirect('/katalog');
+            return redirect('/dashboard');
         }
         return redirect('/login');
     }
@@ -36,15 +36,20 @@ class LoginController extends Controller
     public function postRegistrasi(Request $request)
     {
         User::create([
-            'name' => $request->name,
+            'foto' => $request->file('foto')->store('user', 'public'),
+            'nama' => $request->nama,
+            'nik' => $request->nik,
             'level' => 'user',
-            'profile' => null,
             'username' => $request->username,
             'email' => $request->email,
+            'no_hp' => $request->no_hp,
+            'jenis_kelamin' =>$request->jenis_kelamin,
+            'tanggal_lahir' =>$request->tanggal_lahir,
+            'alamat' =>$request->alamat,
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);
-
-        return redirect('/katalog');
+        
+        return redirect('/dashboard');
     }
 }

@@ -24,4 +24,9 @@ class Katalog extends Model
         'catatan'
     ];
 
+    public function transaksi()
+    {
+    	return $this->hasMany(transaksi::class);
+    }
+
 }

@@ -142,7 +142,7 @@ class CustomerController extends Controller
 
     public function cetak_pdf($id){
         $customer = Customer::where('id', $id)->first();
-        $pdf = PDF::loadview('customer.customerPdf',['customer'=>$customer]);
+        $pdf = PDF::loadview('customer.customerPdf',['customer'=>$customer])->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 }

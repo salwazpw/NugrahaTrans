@@ -7,6 +7,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,26 +26,29 @@ Route::get('registrasi', [LoginController::class, 'registrasi'])->name('registra
 Route::post('postregistrasi', [LoginController::class, 'postRegistrasi'])->name('postregistrasi');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'CekLevel:admin,user']], function(){
-    Route::get('/', function () {
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/dashboard', function () {
         return view('layouts.dashboard');
     });
     Route::resource('katalog',KatalogController::class);
     Route::resource('pegawai',PegawaiController::class);
-    Route::resource('customer',CustomerController::class);
+    Route::resource('user',UserController::class);
     Route::resource('pengeluaran',PengeluaranController::class);
     Route::resource('testimoni',TestimoniController::class);
+    Route::resource('transaksi',TransaksiController::class);
     Route::get('customer/cetak_pdf/{member}', [CustomerController::class, 'cetak_pdf'])->name('cetakpdf');
     Route::get('pegawai/cetak_pdf/{pegawai}', [PegawaiController::class, 'cetak_pdf'])->name('cetak_pdf');
+    Route::get('transaksi/cetak_pdf/{trans}', [TransaksiController::class, 'cetak_pdf'])->name('payment');
+    Route::get('pengeluarans/cetak_pdf', [PengeluaranController::class, 'cetak_pdf'])->name('pengeluaranPdf');
+        //ajax
+    Route::get('getTransaksi/{id}',[TransaksiController::class,'getPrice']);
 });
 
 Route::group(['middleware' => ['auth', 'CekLevel:admin, user']], function(){
     Route::get('/sosialmedia', function () {
         return view('sosmed.sosmed');
 });
-    Route::get('/dashboard', function () {
-    return view('layouts.dashboard');
-});
+
 });
 
 Route::get('/lokasi', function () {

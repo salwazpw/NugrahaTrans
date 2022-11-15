@@ -19,57 +19,56 @@
             font-size: 20px;
         }
 
-        #footer{
-            padding-top: 200px; 
-            padding-left: 30px; 
-            padding-right: 30px; 
-            padding-bottom: 80px;
-            font-size: 10px;
-        }
-
     </style>
 
 </head>
 
-<body>
-    <div id=halaman>
-        <h3 id=judul>KARTU MEMBER</h3>
-        
-
+<body>   
+        <div style="border: 1px solid #000; margin: 20px ; padding: 20px; width: 80%; background-color: none; margin-left: 90px">
+            <style type="text/css">
+                table tr td,
+                table tr th {
+                    font-size: 10pt;
+                }
+    
+            </style>
+            <table align="center" style="border-collapse:collapse;">
+                <!-- <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 100px; width:100px">
+                    <img src="{{ public_path("admin/images/logo-siterpi.png") }}" alt="" style="width: 150px; height: 150px;">
+                </td> -->
+                <td style="border-bottom:2px solid #000; text-align: center;padding: 2px; width: 200px; width:800px">
+                    <h3 align="center">NUGRAHA TRANS<br> KARTU MEMBER </h3>
+                    <p align="center">Perumahan Joyogrand B1/10, Merjosari Kec.Lowokwaru, Kota Malang, Jawa Timur 65144
+                        <br>
+                        Telepon: 081234141643, Email : Nugrahacorp.inc@gmail.com
+                    </p>
+                </td>
+    
+            </table>
         <table>
             <tr>
                 <td style="width: 30%;">NIK</td>
-                <td style="width: 5%;">:</td>
+                <td style="width: 30%;">:</td>
                 <td style="width: 65%;"> {{ $customer->id}}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Nama</td>
-                <td style="width: 5%;">:</td>
+                <td style="width: 30%;">:</td>
                 <td style="width: 65%;"> {{ $customer->namaCustomer}}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Alamat</td>
-                <td style="width: 5%;">:</td>
+                <td style="width: 30%;">:</td>
                 <td style="width: 65%;">{{$customer->alamat}}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">No. Telepon</td>
-                <td style="width: 5%;">:</td>
+                <td style="width: 30%;">:</td>
                 <td style="width: 65%;">{{$customer->telepon}}</td>
             </tr>
         </table>
 
     </div>
-
-            
-    <h6 id="footer">
-        <p align="center">Perumahan Joyogrand B1/10, Merjosari Kec.Lowokwaru</p>
-        <p align="center">Kota Malang, Jawa Timur 65144</p>
-        <p align="center"> Nugrahacorp.inc@gmail.com</p>
-        <p align="center">Telp:  081234141643</p>
-        </h6>
-
-    
 </body>
 
 </html>

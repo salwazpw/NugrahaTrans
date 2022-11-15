@@ -20,4 +20,8 @@ class Customer extends Model
         'telepon',
     ];
 
+    public function transaksi()
+    {
+    	return $this->hasMany(transaksi::class);
+    }
 }

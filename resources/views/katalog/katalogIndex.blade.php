@@ -45,7 +45,7 @@
                             <th scope="col">Merk</th>
                             <th scope="col">warna</th>
                             <th scope="col">Gambar</th>
-                            <th scope="col">Harga</th>
+                            <th scope="col">Harga Sewa per Hari</th>
                             <th scope="col">Catatan</th>
                             <th scope="col">Aksi</th>
                         </tr>

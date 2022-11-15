@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Harga</label>
+                            <label for="exampleInputEmail1">Harga Sewa per Hari</label>
                             <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Harga" name="harga" required>
                           </div>
                     </div>
