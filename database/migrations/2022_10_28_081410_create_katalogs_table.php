@@ -15,11 +15,14 @@ class CreateKatalogsTable extends Migration
     {
         Schema::create('katalogs', function (Blueprint $table) {
             $table->id();
+            $table->string('plat');
             $table->string('jenisKendaraan');
             $table->string('merk');
             $table->string('warna');
             $table->string('gambarKendaraan');
             $table->double('harga');
+            $table->enum('status',['Tersewa','Tersedia']);
+            $table->text('informasi');
             $table->text('catatan');
             $table->timestamps();
         });

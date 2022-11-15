@@ -10,19 +10,34 @@ class Katalog extends Model
     use HasFactory;
     protected $table = 'katalogs';
     protected $primaryKey = 'id';
-    protected $keyType = 'string';
-    public $incrementing = false;
+
+    protected $appends = [
+        'statuskatalog'
+    ];
 
     protected $fillable = [
-        'id',
+        'plat',
         'jenisKendaraan',
         'merk',
         'warna',
-        'warna',
         'gambarKendaraan',
         'harga',
+        'status',
+        'informasi',
         'catatan'
     ];
+
+    public function getStatusKatalogAttribute(){
+        $status = $this->status;
+
+        if ($status == 'Tersewa') {
+              $badge = '<span class="badge badge-pill badge-success">Tersewa</span>';
+        } else {
+            $badge = '<span class="badge badge-pill badge-primary">Tersedia</span>';
+        }
+
+        return $badge;
+    }
 
     public function transaksi()
     {

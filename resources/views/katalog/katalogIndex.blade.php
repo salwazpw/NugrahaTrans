@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="table-hover">
+            <div class="table-responsive">
                 <table class="table  table-primary">
                     <thead class="table bg-primary text-white">
                         <tr>
@@ -46,6 +46,8 @@
                             <th scope="col">warna</th>
                             <th scope="col">Gambar</th>
                             <th scope="col">Harga Sewa per Hari</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Informasi</th>
                             <th scope="col">Catatan</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -53,13 +55,15 @@
                     <tbody>
                         @foreach ($katalog as $data)
                             <tr>
-                                <td>{{ $data->id }}</td>
+                                <td>{{ $data->plat }}</td>
                                 <td>{{ $data->jenisKendaraan }}</td>
                                 <td>{{ $data->merk }}</td>
                                 <td>{{ $data->warna }}</td>
                                 <td><img width="150px" height="100px" src="{{ asset('storage/' . $data->gambarKendaraan) }}">
                                 </td>
                                 <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
+                                <td>{!! $data->statuskatalog !!}</td>
+                                <td>{{ $data->informasi }}</td>
                                 <td>{{ $data->catatan }}</td>
                                 <td>
                                     <form action="{{ route('katalog.destroy', $data->id) }}" method="POST">

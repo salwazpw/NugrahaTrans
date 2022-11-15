@@ -25,7 +25,7 @@
                   <div class="col-md-12 col-xs-12">
                     <div class="form-group">
                         <label for="exampleInputEmail1">PLAT</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="PLAT" name="id" required>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="PLAT" name="plat" required>
                       </div>
                 </div>
                     <div class="col-md-12 col-xs-12">
@@ -49,15 +49,21 @@
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="gambarKendaraan">Gambar Kendaraan</label>
-                            <input type="file" class="form-control"  name="gambarKendaraan" required>
+                            <input type="file" class="form-control" name="gambarKendaraan" required>
                           </div>
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Harga Sewa per Hari</label>
-                            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Harga" name="harga" required>
+                            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Harga" name="harga" value="{{old('harga')}}" required>
                           </div>
                     </div>
+                  <div class="col-md-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Informasi</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="informasi" name="informasi" id="informasi" required>
+                      </div>
+                </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Catatan</label>

@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Plat</label>
-                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Plat" name="id" required value="{{$katalog->id}}">
+                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Plat" name="plat" required value="{{$katalog->plat}}">
                           </div>
                     </div>
                     <div class="col-md-6">
@@ -60,6 +60,21 @@
                             <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Harga" name="harga" required value="{{$katalog->harga}}"> 
                           </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Status</label>
+                          <select class="form-control" id="status" name="status">
+                            <option value="Tersewa" {{ $katalog->status == "Tersewa" ? 'selected' : '' }}>Tersewa</option>
+                            <option value="Tersedia" {{ $katalog->status == "Tersedia" ? 'selected' : '' }}>Tersedia</option>
+                        </select>
+                        </div>
+                    </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Informasi</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Informasi" name="informasi" required value="{{$katalog->informasi}}"> 
+                      </div>
+                </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Catatan</label>

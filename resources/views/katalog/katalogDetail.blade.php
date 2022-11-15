@@ -11,7 +11,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Plat</label>
-                            <input type="text" class="form-control" id="id" name="id" readonly value="{{$katalog->id}}">
+                            <input type="text" class="form-control" id="plat" name="plat" readonly value="{{$katalog->plat}}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Jenis Kendaraan</label>
@@ -32,6 +32,14 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Harga</label>
                             <input type="number" class="form-control" id="harga" name="harga" readonly value="{{$katalog->harga}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Status</label>
+                            <input type="text" class="form-control" id="status" name="status" readonly value="{{$katalog->status}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Informasi</label>
+                            <input type="text" class="form-control" id="informasi" name="informasi" readonly value="{{$katalog->informasi}}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Catatan</label>

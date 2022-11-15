@@ -19,11 +19,13 @@ class KatalogController extends Controller
         $pagination = 5;
         $katalog = Katalog::when($request->keyword, function ($query) use ($request) {
             $query
-                ->where('id', 'like', "%{$request->keyword}%")
+                ->where('plat', 'like', "%{$request->keyword}%")
                 ->orWhere('jenisKendaraan', 'like', "%{$request->keyword}%")
                 ->orWhere('merk', 'like', "%{$request->keyword}%")
                 ->orWhere('warna', 'like', "%{$request->keyword}%")
                 ->orWhere('harga', 'like', "%{$request->keyword}%")
+                ->orWhere('status', 'like', "%{$request->keyword}%")
+                ->orWhere('informasi', 'like', "%{$request->keyword}%")
                 ->orWhere('catatan', 'like', "%{$request->keyword}%");
         })->orderBy('id')->paginate($pagination);
 
@@ -53,21 +55,24 @@ class KatalogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required|string',
+            'plat' => 'required|string',
             'jenisKendaraan' => 'required|string|',
             'merk'=>'required|string|',
             'warna'=>'required',
             'gambarKendaraan' => 'required',
             'harga'=> 'required|numeric',
+            'informasi' => 'required',
             'catatan'=> 'required',
         ]);
 
-        $katalog = new Katalog();
-        $katalog->id = $request->get('id');
+        $katalog = new Katalog;
+        $katalog->plat = $request->get('plat');
         $katalog->jenisKendaraan = $request->get('jenisKendaraan');
         $katalog->merk = $request->get('merk');
         $katalog->warna = $request->get('warna');
         $katalog->harga = $request->get('harga');
+        $katalog->status = 'Tersedia';
+        $katalog->informasi = $request->get('informasi');
         $katalog->catatan = $request->get('catatan');
 
         if ($request->file('gambarKendaraan')) {
@@ -102,7 +107,7 @@ class KatalogController extends Controller
      */
     public function edit($id)
     {
-        $katalog = Katalog::find($id);
+        $katalog = Katalog::findOrFail($id);
         return view('katalog.katalogEdit', compact('katalog'));
     }
 
@@ -116,11 +121,13 @@ class KatalogController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id' => 'required|string',
+            'plat' => 'required|string',
             'jenisKendaraan' => 'required|string|',
             'merk'=>'required|string|',
             'warna'=>'required',
             'harga'=> 'required|numeric',
+            'status' => 'required',
+            'informasi' => 'required',
             'catatan'=> 'required',
         ]);
 
@@ -132,11 +139,13 @@ class KatalogController extends Controller
             $image_name = $request->file('gambarKendaraan')->store('images', 'public');
             $katalog->gambarKendaraan = $image_name;
         }
-        $katalog->id = $request->get('id');
+        $katalog->plat = $request->get('plat');
         $katalog->jenisKendaraan = $request->get('jenisKendaraan');
         $katalog->merk = $request->get('merk');
         $katalog->warna = $request->get('warna');
         $katalog->harga = $request->get('harga');
+        // $katalog->status = $request->get('status');
+        $katalog->informasi = $request->get('informasi');
         $katalog->catatan = $request->get('catatan'); 
 
         $katalog->save();
