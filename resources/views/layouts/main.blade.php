@@ -95,6 +95,9 @@
     <script src="{{asset('templatee/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js')}}"></script>
     <script src="{{asset('templatee/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js')}}"></script>
     <script src="{{asset('templatee/dist/js/pages/dashboards/dashboard1.min.js')}}"></script>
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> --}}
+    @yield('js')
 </body>
 
 </html>

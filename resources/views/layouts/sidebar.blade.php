@@ -19,8 +19,8 @@
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('user.index')}}" aria-expanded="false"><i
                             class=" fas fa-users"></i><span class="hide-menu">Data User</span></a>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('transaksi.index')}}" aria-expanded="false"><i
-                            class="far fa-money-bill-alt"></i><span class="hide-menu">Sewa & Transaksi</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('sewa.index')}}" aria-expanded="false"><i
+                            class="far fa-money-bill-alt"></i><span class="hide-menu">Sewa</span></a>
                 </li>
                 {{-- @if (auth()->user()->level == 'admin') --}}
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"

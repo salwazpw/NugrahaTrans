@@ -5,6 +5,7 @@ use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\SewaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TransaksiController;
@@ -27,6 +28,8 @@ Route::post('postregistrasi', [LoginController::class, 'postRegistrasi'])->name(
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::resource('sewa',SewaController::class);
+});
     Route::get('/dashboard', function () {
         return view('layouts.dashboard');
     });
@@ -35,25 +38,19 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('user',UserController::class);
     Route::resource('pengeluaran',PengeluaranController::class);
     Route::resource('testimoni',TestimoniController::class);
-    Route::resource('transaksi',TransaksiController::class);
     Route::get('customer/cetak_pdf/{member}', [CustomerController::class, 'cetak_pdf'])->name('cetakpdf');
     Route::get('pegawai/cetak_pdf/{pegawai}', [PegawaiController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('transaksi/cetak_pdf/{trans}', [TransaksiController::class, 'cetak_pdf'])->name('payment');
     Route::get('pengeluarans/cetak_pdf', [PengeluaranController::class, 'cetak_pdf'])->name('pengeluaranPdf');
         //ajax
-    Route::get('getTransaksi/{id}',[TransaksiController::class,'getPrice']);
-});
+    // Route::get('getTransaksi/{id}',[TransaksiController::class,'getPrice']);
+    Route::get('getTransaksi/{id}',[SewaController::class,'getPrice']);
 
-Route::group(['middleware' => ['auth', 'CekLevel:admin, user']], function(){
+
     Route::get('/sosialmedia', function () {
         return view('sosmed.sosmed');
-});
-
 });
 
 Route::get('/lokasi', function () {
     return view('lokasi.lokasi');
 });
-
-Route::get('update', [UserController::class, 'edit'])->name('userUpdate');
-Route::patch('updateprofile',  [UserController::class, 'update'])->name('updateProfile');
