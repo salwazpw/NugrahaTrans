@@ -24,7 +24,7 @@ class UserController extends Controller
             ->orWhere('tanggal_lahir','like',"%{$request->keyword}%")
             ->orWhere('jenis_kelamin','like',"%{$request->keyword}%")
             ->orWhere('alamat','like',"%{$request->keyword}%");
-        })->orderBy('id')->paginate($pagination);
+        })->orderBy('nik')->paginate($pagination);
 
         $user->appends($request->only('keyword'));
         return view('user.user',compact('user'))
@@ -58,9 +58,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik)
     {
-        //
+        $user = User::find($nik);
+        return view('user.show', compact('user'));
     }
 
     /**

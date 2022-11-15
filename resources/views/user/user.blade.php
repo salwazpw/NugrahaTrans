@@ -45,6 +45,7 @@ Data User | NugrahaTrans
                         <th scope="col">Alamat</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Tanggal Lahir</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,12 @@ Data User | NugrahaTrans
                         <td>{{$data->alamat}}</td>
                         <td>{{$data->jenis_kelamin}}</td>
                         <td>{{$data->tanggal_lahir}}</td>
+                        <td>
+                            <form action="{{ route('user.destroy',  $data->nik) }}" method="POST">
+                                <a class="btn btn-icons btn-primary" href="{{route('user.show', $data->nik)}}"><i class="fa fa-eye"></i></a> 
+                                @csrf
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
