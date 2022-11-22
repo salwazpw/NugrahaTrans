@@ -255,19 +255,16 @@ Dashboard | Nugraha Trans
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 3</div>
                         <img src="{{ asset('templatee/assets/images/mobil1.jpeg') }}" style="width:80%; margin-left: 70px;">
-                        <div class="text">Caption Text</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 3</div>
                         <img src="{{ asset('templatee/assets/images/mobil2.jpeg') }}" style="width:80%; margin-left: 70px;">
-                        <div class="text">Caption Two</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 3</div>
                         <img src="{{ asset('templatee/assets/images/mobil3.jpeg') }}" style="width:80%; margin-left: 70px;">
-                        <div class="text">Caption Three</div>
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1)"><</a>
