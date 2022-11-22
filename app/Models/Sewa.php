@@ -12,7 +12,6 @@ class Sewa extends Model
     protected $primaryKey = 'id';
 
     protected $appends = [
-        'hari',
         'statusbayar'
     ];
 
@@ -22,13 +21,11 @@ class Sewa extends Model
         'tanggalSewa',
         'tanggalAmbil',
         'tanggalKembali',
+        'hari',
         'harga',
-        'status_pembayaran'
+        'status_pembayaran',
+        'totalPembayaran'
     ];
-
-    public function getHariAttribute(){
-        return \Carbon\Carbon::parse($this->tanggalAmbil)->diff(\Carbon\Carbon::parse($this->tanggalKembali))->format('%d hari');
-    }
 
     public function getStatusBayarAttribute(){
         $status_pembayaran = $this->status_pembayaran;
@@ -44,6 +41,10 @@ class Sewa extends Model
 
     public function katalog(){
         return $this->belongsTo(Katalog::class);
+    }
+
+    public function bukti(){
+        return $this->hasMany(Bukti::class);
     }
 
 }

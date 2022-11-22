@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Katalog;
 use App\Models\Sewa;
+use PDF;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -17,23 +18,24 @@ class SewaController extends Controller
     public function index(Request $request)
     {
         $pagination = 5;
-        $sewa = Sewa::when($request->keyword, function($query) use ($request){
+        $sewa = Sewa::when($request->keyword, function ($query) use ($request) {
             $query
-            ->where('nik','like',"%{$request->keyword}%")
-            ->orWhere('katalog_id','like',"%{$request->keyword}%")
-            ->orWhere('tanggalSewa','like',"%{$request->keyword}%")
-            ->orWhere('tanggalAmbil','like',"%{$request->keyword}%")
-            ->orWhere('tanggalKembali','like',"%{$request->keyword}%")
-            ->orWhere('jumlah','like',"%{$request->keyword}%")
-            ->orWhere('harga','like',"%{$request->keyword}%")
-            ->orWhere('status_pembayaran','like',"%{$request->keyword}%")
-            ->orWhere('harga','like',"%{$request->keyword}%");
+                ->where('nik', 'like', "%{$request->keyword}%")
+                ->orWhere('katalog_id', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggalSewa', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggalAmbil', 'like', "%{$request->keyword}%")
+                ->orWhere('tanggalKembali', 'like', "%{$request->keyword}%")
+                ->orWhere('jumlah', 'like', "%{$request->keyword}%")
+                ->orWhere('harga', 'like', "%{$request->keyword}%")
+                ->orWhere('hari', 'like', "%{$request->keyword}%")
+                ->orWhere('status_pembayaran', 'like', "%{$request->keyword}%")
+                ->orWhere('harga', 'like', "%{$request->keyword}%");
         })->orderBy('id')->paginate($pagination);
 
 
-            $sewa->appends($request->only('keyword'));
-            return view('sewa.sewaIndex',compact('sewa'))
-                ->with('i',(request()->input('page',1)-1)*$pagination);
+        $sewa->appends($request->only('keyword'));
+        return view('sewa.sewaIndex', compact('sewa'))
+            ->with('i', (request()->input('page', 1) - 1) * $pagination);
     }
 
     /**
@@ -43,8 +45,8 @@ class SewaController extends Controller
      */
     public function create()
     {
-        $katalog = Katalog::where('status','Tersedia')->get();
-        return view('sewa.sewaCreate',['katalog'=>$katalog]);
+        $katalog = Katalog::where('status', 'Tersedia')->get();
+        return view('sewa.sewaCreate', ['katalog' => $katalog]);
     }
 
     /**
@@ -55,31 +57,38 @@ class SewaController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
-            'nik' => 'required',
+        $request->validate([
             'katalog_id' => 'required',
-            'tanggalSewa'=> 'required',
-            'tanggalAmbil'=> 'required',
-            'tanggalKembali'=> 'required',
+            'tanggalSewa' => 'required',
+            'tanggalAmbil' => 'required',
+            'tanggalKembali' => 'required',
             'harga' => 'required',
-            // 'status_pembayaran'=> 'required'
+            'hari' => 'required',
+            // 'status_pembayaran'=> 'required',
+            'totalPembayaran' => 'required'
         ]);
 
         $sewa = new Sewa;
-        $sewa -> nik = $request->nik;
-        $sewa -> katalog_id = $request->katalog_id;
-        $sewa -> tanggalSewa = $request->tanggalSewa;
-        $sewa -> tanggalAmbil = $request->tanggalAmbil;
-        $sewa -> tanggalKembali = $request->tanggalKembali;
-        $sewa -> harga = $request->harga;
-        $sewa -> status_pembayaran ='Belum Terbayar';
+
+        $sewa->nik = auth()->user()->nik;
+        if (auth()->user()->level == "admin") {
+            $sewa->nik = $request->nik;
+        }
+        $sewa->katalog_id = $request->katalog_id;
+        $sewa->tanggalSewa = $request->tanggalSewa;
+        $sewa->tanggalAmbil = $request->tanggalAmbil;
+        $sewa->tanggalKembali = $request->tanggalKembali;
+        $sewa->harga = $request->harga;
+        $sewa->hari = $request->hari;
+        $sewa->status_pembayaran = 'Belum Terbayar';
+        $sewa->totalPembayaran = $request->totalPembayaran;
         $sewa->save();
 
         $katalog = Katalog::find($request->katalog_id);
-        $katalog -> status = 'Tersewa';
-        $katalog -> save();
+        $katalog->status = 'Tersewa';
+        $katalog->save();
 
-        Alert::success('Success','Transaksi Berhasil Ditambahkan');
+        Alert::success('Success', 'Transaksi Berhasil Ditambahkan');
         return redirect()->route('sewa.index');
     }
 
@@ -92,7 +101,7 @@ class SewaController extends Controller
     public function show($id)
     {
         $sewa = Sewa::find($id);
-        return view('sewa.sewaDetail',compact('sewa'));
+        return view('sewa.sewaDetail', compact('sewa'));
     }
 
     /**
@@ -103,9 +112,9 @@ class SewaController extends Controller
      */
     public function edit($id)
     {
-        $katalog = Katalog::where('status','Tersedia')->get();
+        $katalog = Katalog::where('status', 'Tersedia')->get();
         $sewa = Sewa::findOrFail($id);
-        return view('sewa.sewaEdit',compact('katalog','sewa'));
+        return view('sewa.sewaEdit', compact('katalog', 'sewa'));
     }
 
     /**
@@ -118,25 +127,29 @@ class SewaController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        $request -> validate([
+        $request->validate([
             'katalog_id' => 'required',
-            'tanggalSewa'=> 'required',
-            'tanggalAmbil'=> 'required',
-            'tanggalKembali'=> 'required',
+            'tanggalSewa' => 'required',
+            'tanggalAmbil' => 'required',
+            'tanggalKembali' => 'required',
             'harga' => 'required',
-            'status_pembayaran'=> 'required'
+            'hari' => 'required',
+            'status_pembayaran' => 'required',
+            'totalPembayaran' => 'required'
         ]);
 
         $sewa = Sewa::findOrFail($id);
-        $sewa -> katalog_id = $request->katalog_id;
-        $sewa -> tanggalSewa = $request->tanggalSewa;
-        $sewa -> tanggalAmbil = $request->tanggalAmbil;
-        $sewa -> tanggalKembali = $request->tanggalKembali;
-        $sewa -> harga = $request->harga;
-        $sewa -> status_pembayaran = $request->status_pembayaran;
+        $sewa->katalog_id = $request->katalog_id;
+        $sewa->tanggalSewa = $request->tanggalSewa;
+        $sewa->tanggalAmbil = $request->tanggalAmbil;
+        $sewa->tanggalKembali = $request->tanggalKembali;
+        $sewa->harga = $request->harga;
+        $sewa->hari = $request->hari;
+        $sewa->status_pembayaran = $request->status_pembayaran;
+        $sewa->totalPembayaran = $request->totalPembayaran;
         $sewa->save();
 
-        Alert::success('Success','Sewa Berhasil Diupdate');
+        Alert::success('Success', 'Sewa Berhasil Diupdate');
         return redirect()->route('sewa.index');
     }
 
@@ -153,13 +166,26 @@ class SewaController extends Controller
             return redirect()->route('sewa.index')
                 ->with('success', 'Data Sewa Berhasil Dihapus');
         } catch (\Exception $e) {
-            Alert::error('Gagal','Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
+            Alert::error('Gagal', 'Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
             return redirect()->route('sewa.index');
         }
     }
 
-    public function getPrice($id){
+    public function getPrice($id)
+    {
         $loadData = Katalog::find($id);
         return response()->json($loadData);
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function cetak_pdf($id)
+    {
+        $sewa = Sewa::where('id', $id)->first();
+        $pdf = PDF::loadview('sewa.sewaPdf', ['sewa' => $sewa])->setPaper('a4', 'landscape');
+        return $pdf->stream();
     }
 }

@@ -38,7 +38,11 @@ Data Sewa | NugrahaTrans
             <table class="table  table-primary">
                 <thead class="table bg-primary text-white">
                     <tr>
+                        @if (Auth::check())
+                        @if (auth()->user()->level=="admin")
                         <th scope="col">NIK</th>
+                        @endif
+                        @endif
                         <th scope="col">Kendaraan</th>
                         <th scope="col">Tanggal Sewa</th>
                         <th scope="col">Tanggal Ambil</th>
@@ -46,13 +50,18 @@ Data Sewa | NugrahaTrans
                         <th scope="col">Total Hari</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Status Pembayaran</th>
+                        <th scope="col">Total Pembayaran</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($sewa as $data)
                     <tr>
+                        @if (Auth::check())
+                        @if (auth()->user()->level=="admin")
                         <td>{{$data->nik}}</td>
+                        @endif
+                        @endif
                         <td>{{$data->katalog->plat }}</td>
                         <td>{{date('j M Y', strtotime($data->tanggalSewa))}}</td>
                         <td>{{date('j M Y', strtotime($data->tanggalAmbil)) }}</td>
@@ -60,6 +69,7 @@ Data Sewa | NugrahaTrans
                         <td>{{$data->hari }}</td>
                         <td>Rp. {{number_format($data->harga, 0, ",", ".")}}</td>
                         <td>{!! $data->statusbayar !!}</td>
+                        <td>{{$data->totalPembayaran}}</td>
                         <td>
                             <form action="{{ route('sewa.destroy',  $data->id) }}" method="POST">
                                 <a class="btn btn-icons btn-light" target="_blank" href="{{route('payment', $data->id)}}"><i class="fas fa-print"></i></a>
