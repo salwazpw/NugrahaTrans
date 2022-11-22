@@ -21,8 +21,10 @@ class CreateSewasTable extends Migration
             $table->date('tanggalSewa');
             $table->date('tanggalAmbil');
             $table->date('tanggalKembali');
+            $table->integer('hari');
             $table->double('harga');
             $table->enum('status_pembayaran',['Lunas','Belum Terbayar']);
+            $table->double('totalPembayaran');
             $table->timestamps();
         });
     }

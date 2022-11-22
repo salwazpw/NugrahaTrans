@@ -10,7 +10,11 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Data Katalog Kendaraan</h1><br>
-                        <h3> <a class="btn btn-success" href="{{ route('katalog.create') }}">+ Tambah Data</a></h3>
+                        @if (Auth::check())
+                            @if (auth()->user()->level=="admin")
+                                <h3> <a class="btn btn-success" href="{{ route('katalog.create') }}">+ Tambah Data</a></h3>
+                            @endif
+                        @endif
                     </div><!-- /.col -->
                     <div class="col-md-6"><br><br><br>
                         <div class="float-right">
@@ -49,7 +53,11 @@
                             <th scope="col">Status</th>
                             <th scope="col">Informasi</th>
                             <th scope="col">Catatan</th>
+                            @if (Auth::check())
+                            @if (auth()->user()->level=="admin")
                             <th scope="col">Aksi</th>
+                            @endif
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -65,6 +73,8 @@
                                 <td>{!! $data->statuskatalog !!}</td>
                                 <td>{{ $data->informasi }}</td>
                                 <td>{{ $data->catatan }}</td>
+                                @if (Auth::check())
+                                    @if (auth()->user()->level=="admin")
                                 <td>
                                     <form action="{{ route('katalog.destroy', $data->id) }}" method="POST">
                                         <a class="btn btn-icons btn-primary"
@@ -78,6 +88,9 @@
                                             data-toggle="tooltip" title='Delete'><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
+                            
+                            @endif
+                            @endif
                             </tr>
                         @endforeach
                     </tbody>

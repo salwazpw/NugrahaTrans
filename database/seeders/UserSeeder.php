@@ -19,30 +19,17 @@ class UserSeeder extends Seeder
         User::truncate();
         $user =[
             [
-                'name' => 'admin 1',
+                'nik'=> '19284930126542',
+                'foto' =>'NULL',
+                'nama' => 'admin 1',
                 'level' => 'admin',
-                'profile' => 'profile.png',
                 'username' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' => bcrypt('12345'),
-                'remember_token' => Str::random(60),
-            ],
-            [
-                'name' => 'user 1',
-                'level' => 'user',
-                'profile' => 'profile.png',
-                'username' => 'salwa',
-                'email' => 'salwa@user.com',
-                'password' => bcrypt('12345'),
-                'remember_token' => Str::random(60),
-            ],
-            [
-                'name' => 'user 2',
-                'level' => 'user',
-                'profile' => 'profile.png',
-                'username' => 'nazela',
-                'email' => 'nazela@user.com',
-                'password' => bcrypt('12345'),
+                'no_hp'=> '0829182734',
+                'jenis_kelamin' => 'L',
+                'tanggal_lahir' => '1997-01-16',
+                'alamat' => 'Malang',
                 'remember_token' => Str::random(60),
             ]
         ];

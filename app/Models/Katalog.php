@@ -44,4 +44,9 @@ class Katalog extends Model
     	return $this->hasMany(transaksi::class);
     }
 
+    public function sewa()
+    {
+    	return $this->hasMany(sewa::class);
+    }
+
 }
