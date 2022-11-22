@@ -17,7 +17,7 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         if (Auth::attempt($request->only('username', 'password'))) {
-            return redirect('/dashboard');
+            return redirect('/');
         }
         return redirect('/login');
     }
@@ -50,6 +50,6 @@ class LoginController extends Controller
             'remember_token' => Str::random(60),
         ]);
         
-        return redirect('/dashboard');
+        return redirect('/login');
     }
 }

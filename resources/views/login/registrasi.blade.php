@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="{{ asset('templatee/assets/images/icon2.png') }}">
+    <link rel="icon" type="image/png" href="{{asset('templatee/assets/images/logo bar.png')}}">
     <title>Registrasi - NugrahaTrans </title>
     <!-- Custom CSS -->
     <link href="{{ asset('templatee/dist/css/style.min.css') }}" rel="stylesheet">

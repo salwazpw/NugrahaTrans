@@ -55,10 +55,10 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                        <!-- End Notification -->
-                        <!-- ============================================================== -->
-                        <!-- create new -->
-                        <!-- ============================================================== -->
+                    <!-- End Notification -->
+                    <!-- ============================================================== -->
+                    <!-- create new -->
+                    <!-- ============================================================== -->
 
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -69,21 +69,27 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"  style="margin-left: 840px">
+                                aria-haspopup="true" aria-expanded="false" style="margin-left: 840px">
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span>
-                                {{-- @if(auth()==true)
-                                    <span class="text-dark">{{ auth()->user()->username }}</span> 
-                                    @else --}}
-                                    {{-- <a href="login"> Login? </a> --}}
-                                    {{-- <img class="img-xs rounded-circle" src="{{asset('storage/'. auth()->user()->profile)}}"> --}}
-                                    <i data-feather="chevron-down" class="svg-icon"></i></span>
-                                    
+                                    @if (Auth::check())
+                                        {{ auth()->user()->username }}</h3>
+                                    @else()
+                                        Silahkan Login
+                                    @endif
+                                    <i data-feather="chevron-down" class="svg-icon"></i>
+                                </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route('logout')}}"><i data-feather="power"
+                                @if (Auth::check())
+                                <a class="dropdown-item" href="{{ route('logout') }}"><i data-feather="power"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Logout</a>
+                                @else()
+                                <a class="dropdown-item" href="{{ route('login') }}"><i data-feather="power"
+                                    class="svg-icon mr-2 ml-1"></i>
+                                Login</a>
+                                @endif
                             </div>
                         </li>
                         <!-- ============================================================== -->
