@@ -88,8 +88,16 @@ class SewaController extends Controller
         $katalog->status = 'Tersewa';
         $katalog->save();
 
-        Alert::success('Success', 'Transaksi Berhasil Ditambahkan');
-        return redirect()->route('sewa.index');
+        try {
+            Alert::success('Success', 'Kendaraan Berhasil Disewa');
+            return redirect()->route('sewa.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal', 'Data Tidak Dapat Dihapus Karena Sudah Tersewa');
+            return redirect()->route('sewa.index');
+        }
+
+        // Alert::success('Success', 'Transaksi Berhasil Ditambahkan');
+        // return redirect()->route('sewa.index');
     }
 
     /**

@@ -58,7 +58,7 @@
             </tr>
 
             <td colspan="4">----------------------------------------------------------------------------------------------------------</td>
-            
+
             <tr>
                 <td>Plat Nomor</td>
                 <td>:</td>
@@ -100,8 +100,21 @@
                 <td>:</td>
                 <td>{{ $sewa->totalPembayaran }}</td>
             </tr>
-        </table>
 
+            <td colspan="4">----------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+
+        </table>
+        <h4 align="center">PAYMENT METHOD</h4>
+        <table align="center" style="border:1px solid #000; text-align: center;padding: 3px; width: 230px;">
+            <tr>
+                <td><b>BNI</b> 0614380382<br>
+                    A/n : Bhekty widokanti
+                    <br> <br>
+                    <b>BCA</b> 0113320343<br>
+                    A/n : Rexy Gilang Ramadhan Nugraha
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 
