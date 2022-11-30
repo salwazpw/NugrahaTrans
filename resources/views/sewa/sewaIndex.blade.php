@@ -60,6 +60,8 @@ Data Sewa | NugrahaTrans
                         @if (Auth::check())
                         @if (auth()->user()->level=="admin")
                         <td>{{$data->nik}}</td>
+                        @else
+                        <td>{{auth()->user()->nik == $data->nik}}</td>
                         @endif
                         @endif
                         <td>{{$data->katalog->plat }}</td>
