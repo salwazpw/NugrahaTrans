@@ -59,6 +59,5 @@ Route::get('/lokasi', function () {
 Route::get('getTransaksi/{id}', [SewaController::class, 'getPrice']);
 
 
-
-
+Route::get('belajar', [KatalogController::class, 'indexCar']);
 

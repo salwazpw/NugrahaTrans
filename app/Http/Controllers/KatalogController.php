@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class KatalogController extends Controller
 {
+
+    // public function __invoke(Request $request)
+    // {
+    //     // Kode Anda di sini
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -55,11 +60,11 @@ class KatalogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'plat' => 'required|string',
-            'jenisKendaraan' => 'required|string|',
+            'plat' => 'required',
+            'jenisKendaraan' => 'required',
             'merk'=>'required|string|',
             'warna'=>'required',
-            'gambarKendaraan' => 'required',
+            'gambarKendaraan' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'harga'=> 'required|numeric',
             'informasi' => 'required',
             'catatan'=> 'required',
@@ -170,5 +175,11 @@ class KatalogController extends Controller
             Alert::error('Gagal','Data Tidak Dapat Dihapus Karena Terhubung dengan Tabel Lain');
             return redirect()->route('katalog.index');
         }
+    }
+
+    public function indexCar(){
+        $data = Katalog::all();
+
+        return view('katalog.index', ['products' => $data]);
     }
 }
